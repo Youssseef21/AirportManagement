@@ -22,6 +22,10 @@ namespace AM.Infrastructure.Configuration
                    .HasForeignKey(f => f.PlaneId)
                    .OnDelete(DeleteBehavior.SetNull);
 
+
+
+
+
             // Many-to-many Flight <-> Passenger rename join table to Reservation
             builder.HasMany(f => f.Passengers)
                    .WithMany(p => p.Flights)

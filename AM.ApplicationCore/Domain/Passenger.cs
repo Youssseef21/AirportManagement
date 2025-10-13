@@ -20,6 +20,8 @@ namespace AM.ApplicationCore.Domain
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+
+
         [StringLength(7)]
         public string PassportNumber { get; set; }
 
@@ -30,6 +32,7 @@ namespace AM.ApplicationCore.Domain
         public string TelNumber { get; set; }
 
         public virtual ICollection<Flight> Flights { get; set; }
+        public virtual ICollection <Ticket> Tickets { get; set; }
 
         public override string ToString()
         {
@@ -48,5 +51,7 @@ namespace AM.ApplicationCore.Domain
         {
             Console.WriteLine("I am a passenger");
         }
+
     }
+
 }

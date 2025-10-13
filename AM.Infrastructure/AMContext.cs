@@ -16,6 +16,7 @@ namespace AM.Infrastructure
         public DbSet<AM.ApplicationCore.Domain.Passenger> Passengers { get; set; }
         public DbSet<AM.ApplicationCore.Domain.Staff> Staffs { get; set; }
         public DbSet<AM.ApplicationCore.Domain.Traveller> Travellers { get; set; }
+        public DbSet<AM.ApplicationCore.Domain.Ticket> Tickets { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -36,6 +37,7 @@ namespace AM.Infrastructure
             modelBuilder.ApplyConfiguration(new PlaneConfiguration());
             modelBuilder.ApplyConfiguration(new FlightConfiguration());
             modelBuilder.ApplyConfiguration(new PassengerConfiguration());
+            modelBuilder.ApplyConfiguration(new TicketConfiguration());
         }
     }
     

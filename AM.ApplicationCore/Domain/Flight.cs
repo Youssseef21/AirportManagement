@@ -9,6 +9,8 @@ namespace AM.ApplicationCore.Domain
 {
     public class Flight
     {
+        public virtual ICollection<Ticket> Tickets { get; set; }
+
         public string destination { get; set; }
         public DateTime flightDate { get; set; }
         public string flightId { get; set; }
