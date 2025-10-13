@@ -26,7 +26,7 @@ namespace AM.ApplicationCore.Domain
         public static Flight flight1 = new Flight {
             flightDate = new DateTime(2022, 01, 01,15,10,10), destination = "Paris", EffectiveArrival = new DateTime(2022, 01, 01,17,10,10),EstimatedDuration=110 
        ,Plane= Airbusplane };
-        public static Flight flight2 = new Flight { flightDate = new DateTime(2022, 02, 01,21,10,10), destination = "Paris", EffectiveArrival = new DateTime(2022, 02, 01, 23, 10, 10), EstimatedDuration =105 , Plane = BoingPlane };
+        public static Flight flight2 = new Flight { flightId = "5" ,flightDate = new DateTime(2022, 02, 01,21,10,10), destination = "Paris", EffectiveArrival = new DateTime(2022, 02, 01, 23, 10, 10), EstimatedDuration =105 , Plane = BoingPlane , Airline ="tunisair" , departure ="tunis"};
         public static Flight flight3 = new Flight { flightDate = new DateTime(2022, 03, 01, 5, 10, 10), destination = "Paris", EffectiveArrival = new DateTime(2022, 03, 01, 6, 40, 10), EstimatedDuration = 100, Plane = BoingPlane };
         public static Flight flight4 = new Flight { flightDate = new DateTime(2022, 04, 01, 6, 10, 10), destination = "Madrid", EffectiveArrival = new DateTime(2022, 04, 01, 8, 10, 10), EstimatedDuration =130 , Plane = BoingPlane };
         public static Flight flight5 = new Flight { flightDate = new DateTime(2022, 05, 01, 17, 10, 10), destination = "Madrid", EffectiveArrival = new DateTime(2022, 05, 01, 18, 50, 10), EstimatedDuration =105 , Plane = BoingPlane };

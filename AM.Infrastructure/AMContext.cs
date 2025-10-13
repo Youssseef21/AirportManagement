@@ -9,7 +9,7 @@ using AM.Infrastructure.Configuration;
 
 namespace AM.Infrastructure
 {
-    internal class AMContext : DbContext
+    public class AMContext : DbContext
     {
         public DbSet<AM.ApplicationCore.Domain.Plane> Planes { get; set; }
         public DbSet<AM.ApplicationCore.Domain.Flight> Flights { get; set; }
