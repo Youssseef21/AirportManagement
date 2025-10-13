@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations; // for DataType.Currency
 
 namespace AM.ApplicationCore.Domain
 {
@@ -10,6 +11,7 @@ namespace AM.ApplicationCore.Domain
     {
         public DateTime EmploymentDate { get; set; }
         public string Function { get; set; }
+        [DataType(DataType.Currency, ErrorMessage = "Invalid salary value")]
         public int Salary { get; set; }
         public override void PassengerType()
         {

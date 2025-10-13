@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations; // added for validation
 
 namespace AM.ApplicationCore.Domain
 {
@@ -21,6 +22,7 @@ namespace AM.ApplicationCore.Domain
 
         public int PlaneId { get; set; }
         public PlaneType PlaneType { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "Capacity must be positive")]
         public int Capacity { get; set; }
         public DateTime ManufactureDate { get; set; }
 

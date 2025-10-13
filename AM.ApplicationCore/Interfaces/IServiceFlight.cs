@@ -17,6 +17,8 @@ namespace AM.ApplicationCore.Interfaces
         void GetFlights(string filterType, string filterValue);
         IEnumerable<Traveller> SeniorTravellers(Flight flight);
         IEnumerable<IGrouping<string, Flight>> DestinationGroupedFlights();
+        int DurationAverage(string destination);
+        IEnumerable<Flight> OrderedDurationFlights();
     }
 
 }

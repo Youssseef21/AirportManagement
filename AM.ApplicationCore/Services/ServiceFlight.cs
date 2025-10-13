@@ -53,51 +53,15 @@ namespace AM.ApplicationCore.Services
         }
 
 
-        public int ProgrammedFlightNumber(DateTime startDate)
-        {
-            var endDate = startDate.AddDays(7);
-            return Flights.Count(f => f.flightDate >= startDate && f.flightDate < endDate);
-        }
-        public int ProgrammedFlightNumber2(DateTime startDate)
-        {
-            var endDate = startDate.AddDays(7);
 
-            var query =
-                from f in Flights
-                where f.flightDate >= startDate && f.flightDate < endDate
-                select f;
 
-            return query.Count();
-        }
-        public int DurationAverage(string destination)
-        {
-            var query =
-                from f in Flights
-                where f.destination == destination
-                select f.EstimatedDuration;
-            return (int)query.Average();
-        }
-        public int DurationAverage2(string destination)
-        {
-            return (int)Flights
-                .Where(f => f.destination == destination)
-                .Average(f => f.EstimatedDuration);
-        }
-        public IEnumerable<Flight> OrderedDurationFlights()
-        {
-            var query =
-                from f in Flights
-                orderby f.EstimatedDuration descending, f.flightDate ascending
-                select f;
-            return query;
-        }
-        public IEnumerable<Flight> OrderedDurationFlights2()
-        {
-            return Flights
-                .OrderByDescending(f => f.EstimatedDuration)
-                .ThenBy(f => f.flightDate);
-        }
 
+
+
+
+
+
+      
         public IEnumerable<Traveller> SeniorTravellers(Flight flight)
         {
             if (flight?.Passengers == null)
@@ -105,7 +69,7 @@ namespace AM.ApplicationCore.Services
 
             return flight.Passengers
                          .OfType<Traveller>()
-                         .OrderBy(t => t.BirthDate)   
+                         .OrderBy(t => t.BirthDate)
                          .Take(3);
         }
 
@@ -127,7 +91,64 @@ namespace AM.ApplicationCore.Services
             return grouped;
         }
 
+        public IEnumerable<Flight> OrderedDurationFlights()
+        {
+            var query =
+                from f in Flights
+                orderby f.EstimatedDuration descending, f.flightDate ascending
+                select f;
+            return query;
+        }
 
+        public int DurationAverage(string destination)
+        {
+            var query =
+                from f in Flights
+                where f.destination == destination
+                select f.EstimatedDuration;
+            return (int)query.Average();
+        }
+
+        public int ProgrammedFlightNumber(DateTime startDate)
+        {
+            var endDate = startDate.AddDays(7);
+            return Flights.Count(f => f.flightDate >= startDate && f.flightDate < endDate);
+        }
+       
+
+
+
+
+
+
+
+
+
+
+        public int ProgrammedFlightNumber2(DateTime startDate)
+        {
+            var endDate = startDate.AddDays(7);
+
+            var query =
+                from f in Flights
+                where f.flightDate >= startDate && f.flightDate < endDate
+                select f;
+
+            return query.Count();
+        }
+
+        public int DurationAverage2(string destination)
+        {
+            return (int)Flights
+                .Where(f => f.destination == destination)
+                .Average(f => f.EstimatedDuration);
+        }
+        public IEnumerable<Flight> OrderedDurationFlights2()
+        {
+            return Flights
+                .OrderByDescending(f => f.EstimatedDuration)
+                .ThenBy(f => f.flightDate);
+        }
 
         public void GetFlights(string filterType, string filterValue)
         {
